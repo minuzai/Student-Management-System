@@ -8,8 +8,8 @@ def studentList():
 
 @app.route('/assignments')
 def assignments():
-   return render_tempalte('assignments.html.j2')
+   return render_template('assignments.html.j2')
 
 @app.route('/addStudent')
 def addStudent():
-   return render_tempalte('addStudent.html.j2')
+   return render_template('addStudent.html.j2')
