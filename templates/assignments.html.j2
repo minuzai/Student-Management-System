@@ -4,5 +4,22 @@
 <div>
   <h1>수강생 1</h1>
   <h3>전체 과제 현황</h3>
+  <br/>
+  <table border=1>
+  <thead>
+    <tr>
+      <th width=500>과제명</th>
+      <th width=80>점수</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+      <tr>
+        <td>ㅇㅇ</td>
+        <td>ㅇㅇ</td>
+      </tr>
+    {% endfor %}      
+  </tbody>
+</table>
 </div>
 {% endblock %}

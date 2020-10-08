@@ -2,17 +2,27 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>수강생 관리 시스템</title>
+
+    {# 페이지에 따른 타이틀 변경 #}
+    {% if title %}
+      <title>수강생 관리 - {{ title }}</title>
+    {% else %}
+      <title>수강생 관리</title>
+    {% endif %}
   </head>
+
   <body>
+    {# 네비게이션바 #}
     <header>
       <nav>
-        <a href="/">수강생 리스트</a>
+        <a href="/">수강생 목록</a>
         <a href="/addStudent">수강생 추가</a>
       </nav>
     </header>
+    <hr/>
+
+    {# 메인 컨텐츠 블록 #}
     <main role="main">
-      <!-- Main Content Block -->
       {% block content %} {% endblock %}
     </main>
   </body>
