@@ -41,22 +41,21 @@ def userList():
    return render_template('userList.html.j2', title='목록', users=users)
 
 # 유저 추가 Page
-@app.route('/addUser')
-def addUser():
-   return render_template('addUSer.html.j2', title='추가')
+@app.route('/newUser')
+def newUser():
+   return render_template('newUser.html.j2', title='추가')
 
 # 유저 정보 Page
 @app.route('/userDetail/<id>')
 def userDetail(id):
-   print('#### id #### : ', id)
    assignments = Assignment.query.all()
    print('##### assignment : ', assignments)
 
    return render_template('userDetail.html.j2', assignments=assignments)
 
-# 유저 추가 엔드포인트
-@app.route('/add', methods=["POST"])
-def add():
+# 유저 추가 End Point
+@app.route('/addUser', methods=["POST"])
+def addUser():
    payload = request.form
    print('#### payload #### : ', payload)
 
@@ -66,6 +65,23 @@ def add():
 
    user = User(username=username, email=email)
    db.session.add(user)
+   db.session.commit()
+
+   return redirect(url_for('userList'))
+
+# 과제 및 점수 추가 End Point
+@app.route('/addAssignment/<id>', methods=["POST"])
+def addAssignment(id):
+   payload = request.form
+   print('#### payload #### : ', payload)
+
+   assignment_title = payload['title']
+   score = payload['score']
+   user_id = id
+   print('#### Data #### : ', assignment_title, ' / ', score)
+
+   assignment = Assignment(assignment_title=assignment_title, score=score, user_id=user_id)
+   db.session.add(assignment)
    db.session.commit()
 
    return redirect(url_for('userList'))

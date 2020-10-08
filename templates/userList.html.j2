@@ -15,23 +15,25 @@
   </thead>
   <tbody>
     {% for user in users %}
-      <tr>
-        <td>
-          <a href="/userDetail/{{ user.id }}"> 
-            {{ user.username }}
-          </a>
-        </td>
-        <td>
-          <input type="text" style="width: 500px" />
-        </td>
-        <td>
-          <input type="text" style="width: 80px"/>
-        </td>
-        <td>
-          <button style="width: 80px">등록</button>
-        </td>
-      </tr>
-    {% endfor %}      
+      <form name="addAssignment" action="/addAssignment/{{ user.id }}" method="POST">
+        <tr>
+          <td>
+            <a href="/userDetail/{{ user.id }}"> 
+              {{ user.username }}
+            </a>
+          </td>
+          <td>
+            <input type="text" style="width: 500px" name="title" />
+          </td>
+          <td>
+            <input type="text" style="width: 80px" name="score"/>
+          </td>
+          <td>
+            <input type="submit" style="width: 80px" value="등록" />
+          </td>
+        </tr>
+      </form>
+    {% endfor %}
   </tbody>
 </table>
 {% endblock %}
