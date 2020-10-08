@@ -9,6 +9,7 @@ cryptography==3.1.1
 distlib==0.3.1
 filelock==3.0.12
 Flask==1.1.2
+Flask-SQLAlchemy==2.4.4
 idna==2.10
 isort==5.6.0
 itsdangerous==1.1.0
@@ -29,6 +30,7 @@ requests @ file:///tmp/build/80754af9/requests_1592841827918/work
 ruamel-yaml==0.15.87
 ruamel.yaml.clib==0.2.0
 six==1.15.0
+SQLAlchemy==1.3.19
 sqlparse==0.3.1
 toml==0.10.1
 tqdm @ file:///tmp/build/80754af9/tqdm_1601923723745/work
