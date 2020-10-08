@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask('__name__')
@@ -17,6 +17,8 @@ class User(db.Model):
    username = db.Column(db.String(50), nullable=False)
    email = db.Column(db.String(50), nullable=False)
 
+   assignments = db.relationship('Assignment', backref='student', lazy=True)
+
    def __repr__(self):
       return f"<User('{self.id}', '{self.username}', '{self.email}')>"
 
@@ -34,7 +36,8 @@ class Assignment(db.Model):
 
 @app.route('/')
 def userList():
-    return render_template('userList.html.j2', title='목록')
+   users = User.query.all()
+   return render_template('userList.html.j2', title='목록', users=users)
 
 @app.route('/addUser')
 def addUser():
@@ -43,3 +46,19 @@ def addUser():
 @app.route('/userDetail')
 def userDetail():
    return render_template('userDetail.html.j2', title='수강생 1')
+
+# 유저 추가 엔드포인트
+@app.route('/add', methods=["POST"])
+def add():
+   payload = request.form
+   print('#### payload #### : ', payload)
+
+   username = payload['username']
+   email = payload['email']
+   print('#### Data #### : ', username, ' / ', email)
+
+   user = User(username=username, email=email)
+   db.session.add(user)
+   db.session.commit()
+
+   return redirect(url_for('userList'))

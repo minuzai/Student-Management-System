@@ -4,14 +4,15 @@
 <div>
   <h1>수강생 추가</h1>
 </div>
-<form name="addUser" action="/add" method="post">
+<form name="addUser" action="/add" method="POST">
   <div>
     <p>이름</p>
-    <input type="text"/>
+    <input type="text" name="username"/>
     <p>이메일</p>
-    <input type="email"/>
+    <input type="email" name="email"/>
   </div>
   <br/>
-  <button type="submit">추가하기</button>
+  <input type = "submit" value = "추가하기"/>
+  {# <button type="submit">추가하기</button> #}
 </form>
 {% endblock %}

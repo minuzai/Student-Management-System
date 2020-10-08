@@ -14,21 +14,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>ㅇㅇ</td>
-      <td>
-        <input type="text" style="width: 500px" />
-      </td>
-      <td>
-        <input type="text" style="width: 80px"/>
-      </td>
-      <td>
-        <button style="width: 80px">등록</button>
-      </td>
-    </tr>
     {% for user in users %}
       <tr>
-        <td>ㅇㅇ</td>
+        <td>{{ user.username }}</td>
         <td>
           <input type="text" style="width: 500px" />
         </td>
