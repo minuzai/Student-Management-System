@@ -7,6 +7,8 @@ app.config['SECRET_KEY'] = 'secret key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
+
 db = SQLAlchemy(app)
 
 # Student 테이블
