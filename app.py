@@ -46,12 +46,13 @@ def newUser():
    return render_template('newUser.html.j2', title='추가')
 
 # 유저 정보 Page
-@app.route('/userDetail/<id>')
+@app.route('/userDetail/<id>/')
 def userDetail(id):
-   assignments = Assignment.query.all()
-   print('##### assignment : ', assignments)
-
-   return render_template('userDetail.html.j2', assignments=assignments)
+   assignments = Assignment.query.filter_by(user_id = id)
+   user = User.query.filter_by(id=id).one()
+   print('#### assignments #### : ', assignments, id)
+   print('#### user #### : ', user, id)
+   return render_template('userDetail.html.j2', assignments=assignments, user=user)
 
 # 유저 추가 End Point
 @app.route('/addUser', methods=["POST"])

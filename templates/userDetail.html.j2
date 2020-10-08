@@ -2,21 +2,21 @@
 
 {% block content %}
 <div>
-  <h1>수강생 1</h1>
+  <h1>{{ user.username }}</h1>
   <h3>전체 과제 현황</h3>
   <br/>
   <table border=1>
   <thead>
     <tr>
-      <th width=500>과제명</th>
+      <th width=500>과제 이름</th>
       <th width=80>점수</th>
     </tr>
   </thead>
   <tbody>
     {% for assignment in assignments %}
       <tr>
-        <td>ㅇㅇ</td>
-        <td>ㅇㅇ</td>
+        <td>{{ assignment.assignment_title }}</td>
+        <td>{{ assignment.score }}</td>
       </tr>
     {% endfor %}      
   </tbody>
