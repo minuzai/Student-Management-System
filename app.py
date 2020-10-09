@@ -35,6 +35,8 @@ class Assignment(db.Model):
    def __repr__(self):
       return f"<Assignment('{self.id}', '{self.assignment_title}', '{self.score}')>"
 
+db.create_all()
+
 # 유저 목록 Page (메인 페이지)
 @app.route('/')
 def userList():

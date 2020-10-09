@@ -5,6 +5,3 @@
 # Python
 __pycache__
 .venv
-
-# DB
-site.db
