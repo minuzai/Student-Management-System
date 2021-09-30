@@ -1,2 +1,2 @@
 # Student-Management-System
-CodeStates DE TA Intern Project
+CodeStates DE TA 인턴 과제
